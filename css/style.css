@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.contenedor {
+  display: flex;
+  max-width: 80%;
+  flex-wrap: wrap;
+  margin: 2% 20% 2% 20%;
+}
+.contenedor .contenido {
+  justify-content: center;
+  grid-area: contenido;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.contenedor .contenido div {
+  background-color: red;
+  border: 1px solid black;
+  margin: 15px;
+  width: 300px;
+  height: 300px;
+}
+
+/*# sourceMappingURL=style.css.map */
