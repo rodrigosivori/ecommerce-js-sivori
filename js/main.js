@@ -111,9 +111,7 @@ switch(cantidadCuo){
     default:
         alert("Por favor, elija entre 3, 6, 9 y 12 cuotas. Muchas gracias.");
         break;
-}
-
-
-
+}        
+        
 
 // EN EL SWITCHEO PODRIA REEMPLAZAR PRECIOPRODUCTO DIRECTAMENTE POR LA VARIABLE SUMA, PERO QUISE MANTENER POR SEPARADO LA PARTE DE SUMAR PRODUCTOS Y DE CALCULAR CUOTAS.
