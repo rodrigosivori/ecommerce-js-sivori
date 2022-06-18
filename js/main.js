@@ -30,7 +30,7 @@ function pushearInformacion() {
 //console.log(carritoDatos);
 
 
-//Ciclo, arranca con la pregunta en si
+// Declaracion de cantidad para el setear el ciclo de preguntas
 
 let cantidad = parseFloat(prompt('cantidad'))
 
@@ -42,7 +42,6 @@ for (let i = 0 ; i < cantidad ; i++){
 }
 
 //declaracion y ciclo para la SUMA
-
 let suma = 0;
 for (let i = 0; i < precioTotal.length; i++) {
     suma += precioTotal[i]
@@ -56,12 +55,16 @@ for (let i = 0; i < precioTotal.length; i++) {
 
 
 
-// Calculador de cuotas. Resultados en consola.
+// CALCULADO DE CUOTAS. RESULTADO EN CONSOLA.
+
+// Declaracion del producto que se le hara el calculo de cuotas (sera el resultado del carrito anterior), y se declara mediante un prompt las cuotas.
+// Tambien se declara un mensaje predeterminado
 
 let precioProducto = suma;
 let cantidadCuo = prompt("Cuotas (3, 6, 9, o 12): ")
 let mensajito = "El total con recargo es: ";
 
+//Declaracion de funciones para las cuotas correspondientes
 
 function tresCuotas(tresCuo){
     let totalEs = tresCuo * 1.05;
@@ -110,3 +113,7 @@ switch(cantidadCuo){
         break;
 }
 
+
+
+
+// EN EL SWITCHEO PODRIA REEMPLAZAR PRECIOPRODUCTO DIRECTAMENTE POR LA VARIABLE SUMA, PERO QUISE MANTENER POR SEPARADO LA PARTE DE SUMAR PRODUCTOS Y DE CALCULAR CUOTAS.
