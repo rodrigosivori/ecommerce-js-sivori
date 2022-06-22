@@ -16,6 +16,19 @@ function carritoTotal(){
     total = new Carrito (productoNuevo, precioNuevo)
 
     pushearInformacion(); //llama a la funcion de pusheo
+
+    // Aca creo una card para mostrar el producto y el precio elegido, una por producto.
+    let productoAgregado = document.createElement('section');
+
+    productoAgregado.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Producto: ${productoNuevo}</h5>
+                <p class="card-text">Valor: $${precioNuevo}</p>
+            </div>
+        </div>`
+
+    document.body.appendChild(productoAgregado);
 }
 
 
@@ -71,6 +84,19 @@ function tresCuotas(tresCuo){
     let cuotasEs = totalEs / 3;
     console.log(mensajito + totalEs);
     console.log("3 cuotas de: " + cuotasEs);
+
+    // Aqui crea una card explicando las 3 cuotas
+    let contenedorTotal = document.createElement('section');
+
+    contenedorTotal.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">TOTAL A PAGAR</h5>
+                <p class="card-text">Usted abonara en 3 cuotas un total de: $${totalEs} <br> El valor a pagar de cada cuota es: $${cuotasEs} </p>
+            </div>
+        </div>`
+
+    document.body.appendChild(contenedorTotal); 
 }
 
 function seisCuotas(seisCuo){
@@ -78,6 +104,19 @@ function seisCuotas(seisCuo){
     let cuotasEs = totalEs / 6;
     console.log(mensajito + totalEs);
     console.log("6 cuotas de: " + cuotasEs);
+
+    // Aqui abajo crea una card explicando las 6 cuotas
+    let contenedorTotal = document.createElement('section');
+
+    contenedorTotal.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">TOTAL A PAGAR</h5>
+                <p class="card-text">Usted abonara en 6 cuotas un total de: $${totalEs} <br> El valor a pagar de cada cuota es: $${cuotasEs} </p>
+            </div>
+        </div>`
+
+    document.body.appendChild(contenedorTotal);     
 }
 
 function nueveCuotas(nueveCuo){
@@ -85,6 +124,19 @@ function nueveCuotas(nueveCuo){
     let cuotasEs = totalEs / 9;
     console.log(mensajito + totalEs);
     console.log("9 cuotas de: " + cuotasEs);
+
+    // Aqui abajo crea una card explicando las cuotas
+    let contenedorTotal = document.createElement('section');
+
+    contenedorTotal.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">TOTAL A PAGAR</h5>
+                <p class="card-text">Usted abonara en 9 cuotas un total de: $${totalEs} <br> El valor a pagar de cada cuota es: $${cuotasEs} </p>
+            </div>
+        </div>`
+
+    document.body.appendChild(contenedorTotal); 
 }
 
 function doceCuotas(doceCuo){
@@ -92,6 +144,19 @@ function doceCuotas(doceCuo){
     let cuotasEs = totalEs / 12;
     console.log(mensajito + totalEs);
     console.log("Ahora 12!! Cuotas de: " + cuotasEs);
+
+    // Aqui abajo crea una card explicando las cuotas
+    let contenedorTotal = document.createElement('section');
+
+    contenedorTotal.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">TOTAL A PAGAR</h5>
+                <p class="card-text">Usted abonara en 12 cuotas sin interes un total de: $${totalEs} <br> El valor a pagar de cada cuota es: $${cuotasEs} </p>
+            </div>
+        </div>`
+
+    document.body.appendChild(contenedorTotal); 
 }
 
 
@@ -115,3 +180,18 @@ switch(cantidadCuo){
         
 
 // EN EL SWITCHEO PODRIA REEMPLAZAR PRECIOPRODUCTO DIRECTAMENTE POR LA VARIABLE SUMA, PERO QUISE MANTENER POR SEPARADO LA PARTE DE SUMAR PRODUCTOS Y DE CALCULAR CUOTAS.
+
+
+// Declaro variable para el valor total y lo llamo en el HTML
+
+let contenedorTotal = document.createElement('section');
+
+    contenedorTotal.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">TOTAL A PAGAR</h5>
+                <p class="card-text">Usted lleva ${cantidad} productos. <br> El total a pagar (sin recargo) es de: $ ${precioProducto} </p>
+            </div>
+        </div>`
+
+    document.body.appendChild(contenedorTotal);
