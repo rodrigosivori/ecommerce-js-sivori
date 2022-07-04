@@ -45,6 +45,17 @@ function carritoTotal(){
     </div>`
     
     document.body.appendChild(productoAgregado);
+
+    //declaro abreviacion para localStorage a modo prueba
+    let ls = localStorage; 
+    
+    //agregar info en storage
+    ls.setItem("producto", productoNuevo)
+    ls.setItem("precio", precioNuevo)
+
+    //recupero datos del storage en consola    
+    console.log(ls.getItem("producto") + ' vale $' + ls.getItem("precio"));
+ 
 }
 
 
