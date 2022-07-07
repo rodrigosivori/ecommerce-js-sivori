@@ -106,19 +106,20 @@ const sumaTotal = (accumulator, curr) => accumulator + curr;
 
 function final() {
     let contenedorTotal = document.createElement('totalidad');
+    let sumaFinal = precioTotal.reduce(sumaTotal);
     
     contenedorTotal.innerHTML = 
     `<div class="card" style="width: 18rem;">
     <div class="card-body">
     <h5 class="card-title">TOTAL A PAGAR</h5>
-    <p class="card-text">El total a pagar (sin recargo) es de: $ ${precioTotal.reduce(sumaTotal)} </p>
+    <p class="card-text">El total a pagar (sin recargo) es de: $ ${sumaFinal} </p>
     </div>
     </div>`
     
     document.body.appendChild(contenedorTotal); 
     
         
-    console.log('El total es: $' + precioTotal.reduce(sumaTotal));
+    console.log('El total es: $' + sumaFinal);
     
     
 }
