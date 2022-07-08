@@ -14,7 +14,6 @@ function limpiar() {
     document.getElementById("producto1").value = "";
 }
 
-
  
 
 // DOY LA ORDEN CUANDO ESCUCHA AL BOTON, LLAME A UNA FUNCION
@@ -99,7 +98,7 @@ function pushearInformacion() {
 }
 
 
-// Declaracion de suma: 
+// Declaracion de funcion suma: 
 
 const sumaTotal = (accumulator, curr) => accumulator + curr;
 
@@ -158,6 +157,7 @@ function final() {
 
     
 }
+
 
 // CON ESTE BOTON PIDO QUE ME DIGA EL TOTAL DE LOS PRODUCTOS
 document.getElementById('listo').onclick = function() {final()};
