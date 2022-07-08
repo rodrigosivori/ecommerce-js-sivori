@@ -51,17 +51,17 @@
     <form>
         <div>
           <label for="producto1">Producto: </label>
-          <input id="producto1" type="text">
+          <input id="producto1" type="text" required>
         </div>
         <div>
           <label for="precio1">Precio: </label>
-          <input id="precio1" type="number">
+          <input id="precio1" type="number" required>
         </div>
         <div>
           <input id="submit" type="submit" value="Agregar">
         </div>
         <div>
-        <input id="listo" type="button" value="Listo">
+        <input id="listo" type="button" value="Finalizar">
         </div>
         
     </form>
@@ -74,6 +74,7 @@
 </section>
 
     <!-- JAVASCRIPT -->
-   <script src="./js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

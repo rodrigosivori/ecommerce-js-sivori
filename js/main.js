@@ -4,6 +4,9 @@ const carrito = document.querySelector('form');
 const producto1 = document.getElementById('producto1');
 const precio1 = document.getElementById('precio1');
 
+//declaro abreviacion para localStorage a modo prueba
+let ls = localStorage; 
+
 
 // Funcion para limpiar los inputs luego del click agregar
 function limpiar() {
@@ -17,19 +20,20 @@ function limpiar() {
 // DOY LA ORDEN CUANDO ESCUCHA AL BOTON, LLAME A UNA FUNCION
 carrito.addEventListener('submit', e => {
     e.preventDefault();
+
+    //Utilizo el IF de abajo para evitar que sea ingresado el valor 0. Ademas en el html utilizo 'REQUIRED' para que se completen los campos.
+    precio1.value === '0' ? 
     
-    //como hago para que si el valor es true, espere al click?, mientras resolvi de otra forma..
-    // Avisara en caso que de precio sea 0 o nulo, o que falte aclarar el producto.
-    producto1.value || alert('ATENCION, olvido agregar el PRODUCTO');
-    precio1.value || alert('ATENCION, olvido agregar el PRECIO');
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'ATENCION!<br>EL PRECIO ES INCORRECTO',
+        text: 'Por favor revise los datos, y vuelva a ingresarlos',
+        showConfirmButton: true,
+        timerProgressBar: true,
+        timer: 2500
+      }) : carritoTotal(), limpiar();
     
-    precio1.value || (precio1.value = 0); // si no ingresa valor, este definira 0 para no afectar en la suma posteriormente
-    producto1.value || (producto1.value = 'No define'); // 'NO DEFINE', para no dejar vacio el campo.
-    
-    
-    
-    carritoTotal()
-    limpiar()
     
     //console.log(producto1.value);
     //console.log(precio1.value);
@@ -72,8 +76,7 @@ function carritoTotal(){
     
     document.body.appendChild(productoAgregado);
 
-    //declaro abreviacion para localStorage a modo prueba
-    let ls = localStorage; 
+    
     
     //agregar info en storage
     ls.setItem("producto", productoNuevo)
@@ -105,6 +108,20 @@ const sumaTotal = (accumulator, curr) => accumulator + curr;
 // funcion para el total:
 
 function final() {
+    
+    // IF con Alerta por si finaliza sin ingresar productos.
+    precioTotal === '0' ||
+    
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'ATENCION!<br>EL CARRITO ESTA VACIO',
+        text: 'Por favor ingrese los productos y sus precios',
+        showConfirmButton: true,
+        timerProgressBar: true,
+        timer: 2500
+    });
+
     let contenedorTotal = document.createElement('totalidad');
     let sumaFinal = precioTotal.reduce(sumaTotal);
     
@@ -118,9 +135,27 @@ function final() {
     
     document.body.appendChild(contenedorTotal); 
     
-        
+
+
+
     console.log('El total es: $' + sumaFinal);
+
+    //Alerta desde libreria con el precio total
+    Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'El total es de $' + sumaFinal,
+        text: 'Sera redirigido automaticamente para finalizar la compra',
+        showConfirmButton: true,
+        timerProgressBar: true,
+        timer: 3500
+      })
     
+
+    //Seteo el precio total en el localStorage
+    ls.setItem("Precio total", sumaFinal)
+    
+
     
 }
 
