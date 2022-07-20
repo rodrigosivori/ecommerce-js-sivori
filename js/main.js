@@ -15,12 +15,11 @@ function limpiar() {
 }
 
 
-const url = '../JSON/data.json'
 
 // DOY LA ORDEN CUANDO ESCUCHA AL BOTON, LLAME A UNA FUNCION
 carrito.addEventListener('submit', e => {
     e.preventDefault();
-
+    
     //Utilizo el IF de abajo para evitar que sea ingresado el valor 0. Ademas en el html utilizo 'REQUIRED' para que se completen los campos.
     precio1.value === '0' ? 
     
@@ -57,9 +56,9 @@ function carritoTotal(){
     let precioNuevo = precio1.value;
     
     
-
+    
     total = new Carrito (productoNuevo, precioNuevo)
-
+    
     pushearInformacion(); //llama a la funcion de pusheo
     
     // Aca creo una card para mostrar el producto y el precio elegido, una por producto.
@@ -75,28 +74,34 @@ function carritoTotal(){
     </div>`
     
     document.body.appendChild(productoAgregado);
-
+    
     
     
     //agregar info en storage
     ls.setItem("producto", productoNuevo)
     ls.setItem("precio", precioNuevo)
-
+    
     //recupero datos del storage en consola    
     console.log(ls.getItem("producto") + ' vale $' + ls.getItem("precio"));
     
-    let retotal = JSON.stringify(total);
 
+
+// me da error 405, pero cuando en INSPECCIONAR voy a RED, se crean los data.json correctamente
+
+    let retotal = JSON.stringify(total);
+    
     peticion = {
         method: 'POST',
         body: retotal,
     }
-    fetch(url, peticion)
-        .then(respuesta => respuesta.json)
-        .then(respuesta =>{
-
-        }).catch(error => console.log('error', error))
+    fetch('./JSON/data.json', peticion)
+    .then(respuesta => respuesta.json)
+    .then(respuesta =>{
+        
+    }).catch(error => console.log('error', error))
 }
+
+
 
 
 //funcion que pushea los datos al carrito y tambien juntara solo el valor de precio para mas abajo sumarlos
