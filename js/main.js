@@ -85,7 +85,7 @@ function carritoTotal(){
     console.log(ls.getItem("producto") + ' vale $' + ls.getItem("precio"));
     
 
-
+// la idea es enviar los datos a 'data.json' por medio del metodo POST.
 // me da error 405, pero cuando en INSPECCIONAR voy a RED, se crean los data.json correctamente
 
     let retotal = JSON.stringify(total);
