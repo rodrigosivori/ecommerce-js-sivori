@@ -14,7 +14,8 @@ function limpiar() {
     document.getElementById("producto1").value = "";
 }
 
- 
+
+const url = '../JSON/data.json'
 
 // DOY LA ORDEN CUANDO ESCUCHA AL BOTON, LLAME A UNA FUNCION
 carrito.addEventListener('submit', e => {
@@ -31,7 +32,7 @@ carrito.addEventListener('submit', e => {
         showConfirmButton: true,
         timerProgressBar: true,
         timer: 2500
-      }) : carritoTotal(), limpiar();
+    }) : carritoTotal(), limpiar();
     
     
     //console.log(producto1.value);
@@ -58,7 +59,7 @@ function carritoTotal(){
     
 
     total = new Carrito (productoNuevo, precioNuevo)
-    
+
     pushearInformacion(); //llama a la funcion de pusheo
     
     // Aca creo una card para mostrar el producto y el precio elegido, una por producto.
@@ -83,7 +84,18 @@ function carritoTotal(){
 
     //recupero datos del storage en consola    
     console.log(ls.getItem("producto") + ' vale $' + ls.getItem("precio"));
- 
+    
+    let retotal = JSON.stringify(total);
+
+    peticion = {
+        method: 'POST',
+        body: retotal,
+    }
+    fetch(url, peticion)
+        .then(respuesta => respuesta.json)
+        .then(respuesta =>{
+
+        }).catch(error => console.log('error', error))
 }
 
 
